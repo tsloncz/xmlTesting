@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WDB xmlns="http://ns">
+<Stations StationID="ARBA" Station_Name="Balcarce" Place_Name="Argentina" Lat="-37.75" Long="-58.3" Elev="10" Tav="15" Amp="10" Tmht="2" Wmht="2">
+<Storm_Intensity>
+    <Storm_Intensity Month="1" SIValue="0.1" />
+    <Storm_Intensity Month="2" SIValue="0.1" />
+    <Storm_Intensity Month="3" SIValue="0.1" />
+    <Storm_Intensity Month="4" SIValue="0.1" />
+    <Storm_Intensity Month="5" SIValue="0.1" />
+    <Storm_Intensity Month="6" SIValue="0.1" />
+    <Storm_Intensity Month="7" SIValue="0.1" />
+    <Storm_Intensity Month="8" SIValue="0.1" />
+    <Storm_Intensity Month="9" SIValue="0.1" />
+    <Storm_Intensity Month="10" SIValue="0.1" />
+    <Storm_Intensity Month="11" SIValue="0.1" />
+    <Storm_Intensity Month="12" SIValue="0.1" />
+</Storm_Intensity><weather><weather Year="1980" DOY="1" SRAD="28.5" Tmax="25" Tmin="7.2" Rain="0" DewP="5.9" Wind="1.1"/>
+<weather Year="1980" DOY="2" SRAD="26" Tmax="29.7" Tmin="11.8" Rain="2.5" DewP="18.4" Wind="4.3"/>
+<weather Year="1980" DOY="3" SRAD="28.4" Tmax="23" Tmin="15" Rain="0" DewP="8.7" Wind="2.7"/>
+<weather Year="1980" DOY="4" SRAD="26.9" Tmax="27.3" Tmin="10" Rain="0" DewP="4.6" Wind="1.8"/>
+<weather Year="1980" DOY="5" SRAD="8.1" Tmax="22.5" Tmin="13.5" Rain="0.7" DewP="11.7" Wind="3.5"/>
+<weather Year="1980" DOY="6" SRAD="23.1" Tmax="27.5" Tmin="16.9" Rain="2" DewP="16.9" Wind="3.2"/>
+</weather></Stations></WDB> 

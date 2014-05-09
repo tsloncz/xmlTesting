@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CDB>
+  <Complex_Species>
+    <Species SpeciesID="AL" Species="Alfalfa/Lucerna" LEtg="" TbaseD="" ToptD="" ToptP="" RUE="" LEsec="" lncsf="" SLWmax="" Phase3="" LEear="" Kf="" glfmat="" EmgInt="" EmgSlp="" PhotoC="" Nfixing="Y" PARtK="" PARtE="" PhotoSynID="" CHeight="0.5">
+      <Phases>
+        <Phase Label="" PhylF="" Tswch="" TopSk="" Slwf="" LeafF="" StemF="" GRF="" RTF="" ResF="" MxTiS="" RlNVg="" RlNKr="" RlPVg="" RlPKr="" />
+      </Phases>
+      <TempFactors>
+        <Factor TRF="Leaf Expansion" X="-99" Y="1" />
+        <Factor TRF="Grain Growth" X="-99" Y="1" />
+      </TempFactors>
+      <Cultivars>
+      </Cultivars>
+    </Species>
+    <Species SpeciesID="MZ" Species="Maize/Corn" LEtg="0.5" TbaseD="8" ToptD="32" ToptP="25" RUE="4.5" LEsec="10.5" lncsf="0.5" SLWmax="0.006" Phase3="5.8" LEear="6.2" Kf="1.668" glfmat="0.3" EmgInt="0.3" EmgSlp="0.1" PhotoC="0" Nfixing="N" PARtK="11" PARtE="10" PhotoSynID="C4" CHeight="1.5">
+      <Phases>
+        <Phase Label="GG0.5" PhylF="0" Tswch="A" TopSk="0" Slwf="0" LeafF="0" StemF="0" GRF="1" RTF="0.09" ResF="0.45" MxTiS="0" RlNVg="0.1" RlNKr="1" RlPVg="0.1" RlPKr="1" />
+        <Phase Label="GG1.0" PhylF="0" Tswch="A" TopSk="0" Slwf="0" LeafF="0" StemF="0" GRF="1" RTF="0.09" ResF="0.25" MxTiS="0" RlNVg="0.1" RlNKr="1" RlPVg="0.1" RlPKr="1" />
+      </Phases>
+      <TempFactors>
+        <Factor TRF="Leaf Expansion" X="-99" Y="0" />
+        <Factor TRF="Grain Growth" X="-99" Y="0" />
+      </TempFactors>
+      <Cultivars>
+        <Cultivar CultivarID="IB0073" Name="Dekalb 31" Vcoef="0" LT50c="0" PhLow="12.5" PhHig="20" DelpH="0.79" LEJuv="2" KrNPt="830" KrSEf="0.03" BrnCo="0.11" Prolf="True" EaNPt="" EaSEf="1" LEgg="12" krPGR="0.01" phyll="52" Phy14="0" MxNVg="0.2" MxNKr="0.2" MnNMlt="0.2" MxPVg="0.2" MxPKr="0.2" MnPMlt="0.2">
+        </Cultivar>
+        <Cultivar CultivarID="IB0068" Name="Dekalb 591" Vcoef="0" LT50c="0" PhLow="12.5" PhHig="20" DelpH="0.79" LEJuv="5" KrNPt="810" KrSEf="0.03" BrnCo="0.11" Prolf="True" EaNPt="" EaSEf="1" LEgg="11" krPGR="0.0075" phyll="52" Phy14="0" MxNVg="0.2" MxNKr="0.2" MnNMlt="0.2" MxPVg="0.2" MxPKr="0.2" MnPMlt="0.2">
+        </Cultivar>
+      </Cultivars>
+    </Species>
+  </Complex_Species>
+  <Simple_Crop>
+    <Species SpeciesID="AL" Species_Name="Alfalfa/Lucerna" Source="ALMANAC (ABRVCROP.DAT)" relTT_P1="0.15" relLAI_P1="0.01" relTT_P2="0.5" relLAI_P2="0.95" LAImax="5" RUEmax="2" relTT_Sn="0.9" SnParLAI="2" SnParRUE="10" TbaseDev="4" ToptDev="20" TTtoGerm="20" TTtoMatr="950" EmgInter="15" EmgSlope="6" HrvIndex="0.7" PlntN_Em="0.0417" PlntN_Hf="0.029" PlntN_Mt="0.02" GrnN_Mt="0.025" PlntP_Em="0.0035" PlntP_Hf="0.0028" PlntP_Mt="0.002" GrnP_Mt="0.0035" Nfixing="N" PhotoSynID="" CHeight="0.3" />
+    <Species SpeciesID="W1" Species_Name="Wheat" Source="Improved variety for NL" relTT_P1="0.15" relLAI_P1="0.02" relTT_P2="0.5" relLAI_P2="0.95" LAImax="10" RUEmax="4.7" relTT_Sn="0.6" SnParLAI="1" SnParRUE="10" TbaseDev="0" ToptDev="15" TTtoGerm="20" TTtoMatr="1600" EmgInter="15" EmgSlope="6" HrvIndex="0.55" PlntN_Em="0.06" PlntN_Hf="0.0231" PlntN_Mt="0.0134" GrnN_Mt="0.0234" PlntP_Em="0.0084" PlntP_Hf="0.0032" PlntP_Mt="0.0019" GrnP_Mt="0.0033" Nfixing="N" PhotoSynID="C3" CHeight="1" />
+  </Simple_Crop>
+  <N_Fix>
+    <Species SpeciesID="SB" Species_Name="Soybean" Source="SBGRO980.CUL" TTFIX="0" RFIXN="17.7" CtoNod="0.05" />
+    <Species SpeciesID="SB" Species_Name="Soybean" Source="SBGRO980.CUL" TTFIX="0" RFIXN="17.7" CtoNod="0.05" />
+  </N_Fix>
+  <CO2_XY>
+    <PhotoSynType PhotSynID="C3">
+      <Point CO2="0" Multiplier="0" />
+      <Point CO2="220" Multiplier="0.71" />
+    </PhotoSynType>
+    <PhotoSynType PhotSynID="C4">
+      <Point CO2="0" Multiplier="0" />
+      <Point CO2="220" Multiplier="0.81" />
+    </PhotoSynType>
+  </CO2_XY>
+  <Version_Control>
+    <Version Number="X_1.0">
+      <ReleaseDate>03/11/2014</ReleaseDate>
+      <Notes>Automatically converted from Access DB by salus_access2xml program.</Notes>
+    </Version>
+  </Version_Control>
+</CDB>

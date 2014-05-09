@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XDB>
+  <Experiment ExpID="20110817143555" Title="Baseline" Person="Bruno Basso, Iurii Shcherbak" Address="" Location="MSU" RelPath="" SoilID="FACE" Soilfp="C:\Program Files (x86)\Salus\exp\face.sdb" StationID="ARBA" Weatherfp="C:\Program Files (x86)\Salus\exp\ARBASXA1.wdb" NYrs="30" NRrepSq="0" ISimI="" SYear="1981" SDOY="164" ISwWat="Y" ISwNit="Y" ISwSym="" ISwPho="Y" ISwPot="" ISwDis="" MeWth="M" MeSIC="" MeSLi="" MeEvp="R" MeInf="R" MePho="" IOX="" IDetO="" IDetS="" Frop="1" IDetG="" IDetC="" IDetN="" IDetP="" IDetD="" IDetL="" Cropfp="C:\Program Files (x86)\Salus\exp\crops.cdb">
+    <Experiments_Notes Notes="" />
+    <Mgt_InitialCond Year="1990" DOY="" PrCrop="" WResR="" WResAG="" KnDnFrac="0" TImpl="" TDep="" WResNd="" EfInoc="1" EfNFix="1" FlDD="0" SFDrn="0">
+      <Layer DLayrI="5" SWInit="0.1" INinorg="2" TotP="0" P_ActIno="" P_SloIno="" P_Labile="" />
+      <Layer DLayrI="10" SWInit="0.12" INinorg="3" TotP="0" P_ActIno="" P_SloIno="" P_Labile="" />
+    </Mgt_InitialCond>
+    <Rotation_Components>
+      <Component OrderNum="1" Title="Spring wheat" IPltI="r" IIrrI="n" IferI="r" IResI="r" ITilI="n" IHarI="r" IEnvI="r">
+        <Mgt_EnvMod_App Year="1980" DOY="164" DAP="" DayFac="" DayAdj="" RadFac="" RadAdj="" TxFac="" TxAdj="" TnFac="" TnAdj="" PrcFac="" PrcAdj="" CO2Fac="R" CO2Adj="360" DptFac="" DptAdj="" WndFac="" WndAdj="" />
+        <Mgt_Fertilizer_App Year="1980" DOY="167" DAP="" IFType="FE001" FerCode="AP004" FInP="100" DFert="4" ACrbFer="0" ANFer="50" APFer="0" AKFer="0" ACFer="0" AOFer="0" FOCod="" FerDecRt="0.15" VolN="30" VolNRate="0.2" />
+        <Mgt_Harvest_App Year="1980" DOY="321" DAP="" HStg="" HCom="H" HSiz="A" HPc="100" HBmin="0" HBPc="0" HKnDnPc="0" />
+        <Mgt_Planting CropMod="C" SpeciesID="WH" CultivarID="IB1030" Year="1980" DOY="164" EYear="0" EDOY="" Ppop="157" Ppoe="157" PlMe="S" PlDs="R" RowSpc="12" AziR="" SDepth="8" SdWtPl="20" SdAge="" ATemp="" PlPH="" />
+        <Mgt_Residue_App Year="1980" DOY="164" DAP="" ResCode="RE001" Residue="1500" RInP="100" DepRes="2" ResC="40" ResN="1.33" ResP="0" ResK="0" />
+      </Component>
+    </Rotation_Components>
+  </Experiment>
+  <Version_Control>
+    <Version Number="X_1.0">
+      <ReleaseDate>03/11/2014</ReleaseDate>
+      <Notes>Automatically converted from Access DB by salus_access2xml program.</Notes>
+    </Version>
+  </Version_Control>
+</XDB>

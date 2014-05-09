@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GDB>
+    <Crop_Par>
+        <Crop_Par Code="AL" Name="Alfalfa" RootC="26" RootN="1" RootP="0.4" RootSloC="14" RootIntC="66" RootSloN="10" VegC="40" VegN="1" VegP="0.4" VegSloC="15" VegIntC="60" VegSloN="10" KnDnFrac="0.5" />
+        <Crop_Par Code="WH" Name="Wheat" RootC="40" RootN="4" RootP="0.4" RootSloC="30" RootIntC="30" RootSloN="10" VegC="40" VegN="4" VegP="0.4" VegSloC="30" VegIntC="30" VegSloN="10" KnDnFrac="0.5" />
+    </Crop_Par>
+    <Fert_Par>
+        <Fert_Par Code="FE001" Name="Ammonium nitrate" NO3Frac="0.5" NH4Frac="0.5" UreaFrac="0" FerDecRt="0.15" VolN="3" VolNRate="0.3" />
+        <Fert_Par Code="NOCOD" Name="Unknown" NO3Frac="0" NH4Frac="0" UreaFrac="0" FerDecRt="" VolN="" VolNRate="" />
+    </Fert_Par>
+    <Irr_Par>
+        <Irr_Par Code="IR001" Name="Furrow" />
+        <Irr_Par Code="NOCOD" Name="Unknown" />
+    </Irr_Par>
+  <Residue_Par Code="RE000" Name="Unknown" ResC="40" ResN="1.3" ResP="0.1" ResK="" SlowC="10" IntermdC="62" HumifdC="10" SlowN="10" VolN="0" VolNRate="0" />
+  <Residue_Par Code="RE004" Name="Liquid manure" ResC="40" ResN="1.3" ResP="0.1" ResK="" SlowC="10" IntermdC="62" HumifdC="10" SlowN="10" VolN="0.02" VolNRate="0.2" />
+  <Till_Par Code="TI000" Name="Undefined Implement" KnDnFrac="1" MixFrac="0.96" DecomFac="1.96" BDFac="0.2" KsMcFac="2.09" PondFac="2" />
+  <Till_Par Code="TI023" Name="Manual hoeing" KnDnFrac="1" MixFrac="0.5" DecomFac="1.5" BDFac="0.2" KsMcFac="3" PondFac="1" />
+  <CO2_Trend_XY Yr="1959" CO2_Level="315.97" />
+  <CO2_Trend_XY Yr="2100" CO2_Level="625" />
+  <Soil_Bio_Kinetic_Par Element="C" ActInorg="0.1" ActIn2Lb="" SloInorg="0.001" ActOrg="0.015" SloFOMAb="0.007143" SloFOMBl="0.01" SloFOMHm="0.66" Labile="" LabInSol="" ActI2CO2="0.66" ActO2CO2="0.66" SloO2CO2="0.66" Rapd2CO2="0.66" Intr2CO2="0.66" Slow2CO2="0.66" Mlch2Sl="0.0001" />
+  <Soil_Bio_Kinetic_Par Element="P" ActInorg="0.1" ActIn2Lb="0.05" SloInorg="0.001" ActOrg="" SloFOMAb="" SloFOMBl="" SloFOMHm="" Labile="0" LabInSol="0.02" ActI2CO2="" ActO2CO2="" SloO2CO2="" Rapd2CO2="" Intr2CO2="" Slow2CO2="" Mlch2Sl="" />
+  <Version_Control>
+    <Version Number="X_1.0">
+      <ReleaseDate>03/11/2014</ReleaseDate>
+      <Notes>Automatically converted from Access DB by salus_access2xml program.</Notes>
+    </Version>
+  </Version_Control>
+</GDB>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SDB>
+  <Soils>
+    <Soil SoilID="FACE" SlDesc="Clay" Slsour="face file" Sltx="Clay" Sldp="180" SSite="Horsham" SCount="Australia" SLat="-36.75" SLong="142.12" Tacon="Aridisol" Scom="" Salb="0.13" U="9" SWCON="0.3" CN2="50" Slnf="1" Slpf="1" Smhb="SA001" Smpx="SA001" Smke="SA001" PondMax="3">
+        <Layer MH="0" ZLYR="10" LL="0.249" DUL="0.39" SAT="0.46" SHF="1" SWCN="0.72" BD="1.14" OC="1.248" Clay="57" Silt="30" Stones="" TotN="0.104" pH="8.4" pHKcl="" CEC="" CaCo="" KsMtrx="" SBioDepF="" TotP="" P_ActIno="" P_SloIno="" P_Labile="" />
+        <Layer MH="2" ZLYR="180" LL="0.29" DUL="0.45" SAT="0.47" SHF="0.4" SWCN="0.72" BD="1.4" OC="0.011" Clay="60" Silt="38" Stones="" TotN="0.001" pH="9.1" pHKcl="" CEC="" CaCo="" KsMtrx="" SBioDepF="" TotP="" P_ActIno="" P_SloIno="" P_Labile="" />
+    </Soil>
+  </Soils>
+  <Version_Control>
+    <Version Number="X_1.0">
+      <ReleaseDate>03/11/2014</ReleaseDate>
+      <Notes>Automatically converted from Access DB by salus_access2xml program.</Notes>
+    </Version>
+  </Version_Control>
+</SDB>
