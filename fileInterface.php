@@ -79,6 +79,7 @@ function uploadFile( )
 //Simple XML Reference http://www.w3schools.com/Php/php_ref_simplexml.asp
 function createFileInterface($filePath)
 {
+	echo "Loading " . $filePath . "<br>";
     $sxe=simplexml_load_file( $filePath );//Default file type
 	if (file_exists($filePath)) 
 	{
@@ -225,7 +226,8 @@ function printUniformChildrenTable( $element )
 }
 function printTableHeadings( $element )
 {
-    echo "<font style='color:green'>" . $element->getName() . "</font><br>";
+    echo "<font style='color:green'>" . $element->getName() . "</font>";
+	echo "<button>New " . $element->getName() . "<br>";
         foreach($element->attributes() as $a => $b)
          {
              echo "<th>" . $a . "</th>";

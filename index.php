@@ -211,7 +211,7 @@ $startTime = new DateTime();
 $sxe=simplexml_load_file( $soilFile );//Default file type
 
 //loadFile(getcwd());
-loadUserFile($_SESSION['directory']);
+//loadUserFile($_SESSION['directory']);
 function loadFile($path, $sxe)
 {
     $XDBFile = $path . "/data/AgMIPWHAU.xdb.xml";

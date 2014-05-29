@@ -1,5 +1,10 @@
 // Event handlers
 // A $( document ).ready() block.
+/* Handles saving of the files
+	Creates XML string 
+	Sends it to server to be converted to xml file
+	and saved
+*/
 $( document ).ready(function() {
 	//validFileName();
     console.log( "ready!" );
@@ -7,40 +12,31 @@ $( document ).ready(function() {
 	  validFileName();
 	});
 });
-function validFileName()
-{
-	var suffix = $('.fileType').attr("id").concat(".xml");
-	var fileName = cleanName($( "#fileName" ).val());
-	$( "#validFile" ).text(fileName.concat("."+suffix));
-}
-function cleanName(name) {
-    name = name.replace(/\s+/gi, '-'); // Replace white space with dash
-    return name.replace(/[^a-zA-Z0-9\-]/gi, ''); // Strip any special charactere
-};
 
 var lastElement = -1;
+/*
+*	create root element
+* 	Pass all children to handleElement
+*	Create elements attributes
+*	Pass all children to handleElement
+*/
 function createXml(){
 	var fileName = $( "#validFile" ).text();
-    console.log("createXml called");
     uploadType = 'string';
     xmlString = '';
-    
-    xmlString = xmlString + "<"+$('.fileType').attr("id")+' type="fileType">\n';
-    console.log("element: " + $( ".fileType" ).attr("id") +" has "+$(".fileType").children(".element").length+" children\n ");
-    console.log("above each");
-    var rootElement = new element($( ".fileType" ).attr("id"), $(".fileType").children(".element").length, "root");
-    
+    // Create root tag
+    xmlString = xmlString + "<?xml version='1.0' encoding='utf-8'?><"+$('.fileType').attr("id")+'>\n';
     // Handle all elements
-    xml = handleElement( $( ".fileType" ).children(".element"), xmlString );
+    xml = handleElement( $( ".fileType" ).children("#tabs").children(".element"), xmlString );
     var res = xmlString.concat(xml);
-    console.log("After Each");
     xmlString = res.concat("</"+$('.fileType').attr('id')+">");
-    console.log(rootElement.numberOfChildren());
     //Send xml string to server for file creation
-    $.post( "createXml.php" , {xmlString:xmlString,uploadType:uploadType, fileName:fileName})
+    $.post( "handler.php" , {cmd: "saveFile", xmlString:xmlString,uploadType:uploadType, fileName:fileName})
         .done( function(data){
                 //console.log('data' + data);
                 console.log('SUCCESS!');
+				console.log(data);
+		getUserFiles();
         });
 }
 
@@ -58,22 +54,64 @@ this.addChild = function(child)
                 
 this.numberOfChildren = function(){return this.children.length;};
 }
-
+// Takes in array of 1st level children
 function handleElement( element )
 {
+	var base = "<"+element.attr("name")+"></"+element.attr("name")+">" ;
     var tempString = '';
     var xml = '';
-    $.each( element, function(i){
-        var temp = $(this);
-        xml = xml.concat(handleChild( temp ) );
+    $.each( element, function(){
+        xml = xml.concat("<"+$(this).attr("name"));
+		if( $(this).children(".headers").length )
+		{
+        	xml = xml.concat(handleCsv( $(this) ) );
+		}
+		else
+		{
+			xml = xml.concat( getAttributes($(this).children(".attributes").children(".attribute") ));
+			xml = xml.concat(">");
+			xml = xml.concat( $(this).children(".elementData").children('input[type=text], textarea').val() );
+			xml = xml.concat(handleElement( $(this).children("#tabs").children(".element") ) );
+		}
+			xml = xml.concat("</"+$(this).attr("name")+">");
     });
     return xml;
+}
+function getAttributes( element )
+{
+	var tempString = '';
+	$.each( element, function(){
+		tempString = tempString.concat(" "+$(this).children('b').html()+'="'+$(this).children('input').val()+'"');
+	});
+	return tempString;
+}
+function handleCsv( element )
+{
+	var temp = ' columns="';
+	var numColumns = element.children(".headers").children(".heading").length;
+	//Add attributes
+	$.each( element.children(".headers").children(".heading"), function(){
+		temp = temp.concat($(this).html() + ",");
+	});
+	temp = temp.concat('">');
+	//Add data
+	$.each( element.children(".values").children(".value").children('input'), function(i){
+		if(i>0 && i%numColumns === 0)
+		{
+			console.log("new row \n");
+			temp.concat("\n");
+		}
+		temp = temp.concat($(this).val() + ",");
+	});
+	return temp;
 }
 function handleChild( element )
 {
     //var kids = element.children(".element");
     var temp = element;
-    var tempString = '';
+    var tempString = "<"+element.attr("name")+"></"+element.attr("name")+">" ;
+		console.log("Handleing " + element.attr("name"));
+		/*
     var type = temp.attr('type');
     var name =temp.attr('name');
     var hasAttributes = temp.attr('attributes');
@@ -97,7 +135,7 @@ function handleChild( element )
         case "csvData":
             tempString = tempString.concat( getCsvData( element ) );
             break;
-    }
+    }*/
     
     return tempString;
 }

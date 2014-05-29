@@ -15,7 +15,6 @@
     <Storm_Intensity Month="11" SIValue="0.1" />
     <Storm_Intensity Month="12" SIValue="0.1" />
 </Storm_Intensity>
-<<<<<<< HEAD
 <Weather Columns="Year,DOY,SRAD,Tmax,Tmin,Rain,DewP,Wind,PAR,">
 1980,1,28.5,25,7.2,0,5.9,1.1,
 1980,2,26,29.7,11.8,2.5,18.4,4.3,

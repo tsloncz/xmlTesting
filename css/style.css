@@ -89,4 +89,67 @@ h4{background:url(../images/divider-3.jpg) bottom no-repeat; display:block; widt
 	border-collapse:collapse;
 	border-color:black;
 }
-
+.deleteFile:hover {cursor:pointer;}
+.fileName:hover {color:red; cursor:pointer;}
+.fileName{
+	vertical-align:text-top;
+}
+.sidebar
+{
+	width: 25em;
+	float: left;
+}
+.mainbar
+{
+	width:	80em;
+	float:	left;
+}
+.attribute{
+	height:	4em;
+	width:	10em;
+	float:	left;
+}
+#tabs
+{
+	border-radius:	.5em;
+	overflow:		auto;
+	float:			left;
+	width:			99%;
+	margin-top: 1em;
+}
+  #tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+  
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
+	  color:	white;
+  }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+	background-color:	#0F264B;
+}
+button{
+	padding:			.25em;
+}
+ul{
+list-style-type:none;
+}
+#mainContentTable{
+	min-width:	800px;
+}
+#sidebar{
+	vertical-align:text-top;
+}
+#editFileArea{
+	min-width:	700px;
+}
+.value{
+	width:	50px;
+}
+.values{
+	height:		500px;
+	width:		494px;
+	overflow:	scroll;
+}
+.heading{
+	width:	50px;
+	float:	left;
+	font-weight:bold;
+}

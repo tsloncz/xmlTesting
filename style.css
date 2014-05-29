@@ -105,3 +105,15 @@ input[type=hidden], button{
 	border-collapse:collapse;
 	border-color:black;
 }
+.fileName:hover {color:red; cursor:pointer;}
+
+.sidebar
+{
+	width: 12em;
+	float: left;
+}
+.mainbar
+{
+	width:40em;
+	float:	left;
+}

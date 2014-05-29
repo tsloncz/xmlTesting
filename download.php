@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-function downloadFile( $file )
-{
+ $file = $_SESSION['directory'] . "/"  . $_GET['fileToDownload'];
+
 	if (file_exists($file)) {
 		header('Content-Description: File Transfer');
 		header('Content-Type: application/octet-stream');
@@ -22,8 +22,8 @@ function downloadFile( $file )
 	}
 fclose ($fd);
 exit;
-}
 
+/*
 function printUserFiles( $dir )
 {
 	echo "<div id='myFiles'><h3>Your current files</h3><form method='post' action='home.php'>";
@@ -51,5 +51,5 @@ function printUserFiles( $dir )
         {
             echo "Sorry,open directory failed<br>";
         }
-}
+}*/
 ?>
