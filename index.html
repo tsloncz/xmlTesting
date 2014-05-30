@@ -23,6 +23,14 @@
     <table id="mainContentTable">
         <tr>
             <td id="sidebar">
+                <div>
+                    <h2>Your Simulation files</h2>
+                    <ul class='userSimulationFiles'>
+                    </ul>
+                    <button onclick='runSimulation'>run simulation</button>
+                    <br />
+                    <br />
+                </div>
                 <h2>Your files</h2>
                 <ul class='userFiles'>
                 </ul>
@@ -35,6 +43,7 @@
                     <div id="uploadStatus">
                     </div>
                 </div>
+                
                 <div id="uploadMultFiles">
                 	<h2>Upload Multiple Files</h2>
                     <form id="multpleUploadForm" action="handler.php" method="post" accept-charset=""enctype="multipart/form-data">

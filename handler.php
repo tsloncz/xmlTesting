@@ -138,6 +138,12 @@ if( isset($_POST["cmd"]) && $_POST["cmd"] == "createInterface" )
     $filePath = $_SESSION['directory'] . "/" . $_POST["filename"];
     echo createFileInterface($filePath);
 }
+if( isset($_POST["cmd"]) && $_POST["cmd"] == "addToSimulation" )
+{
+    $filePath = $_SESSION['directory'];
+	$file = $_POST["fileToAdd"];
+    addToSimulation($filePath, $file);
+}
 if( isset($_POST["cmd"]) && $_POST["cmd"] == "deleteFile" )
 {
     $filePath = $_SESSION['directory'] . $_POST["fileName"];
@@ -158,37 +164,57 @@ if( isset($_POST["cmd"]) && $_POST["cmd"] == "saveFile" )
 	echo fwrite($file,$xmlString);
 	fclose($file);
 }
+// $dir is path to users folder
 function printUserFiles( $dir )
 {
-    // Open a known directory, and proceed to read its contents
+    // User's directory, and proceed to read its contents
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) 
         {
             while (($file = readdir($dh)) !== false) 
             {
-                if ($dh = opendir($dir)) 
-                {
-                    while (($file = readdir($dh)) !== false) 
-                    {
-                        if ($file != "." && $file != ".." && $file != ".htaccess") 
-                        {
-                            $userFiles[] = $file;
-                            //echo "<li><a href=" . htmlentities($_SERVER['PHP_SELF']) . "?cmd=fileInterface&file=$file>" . $file . "</a></li>";
-                        }
-                    }
-                    //echo "</ul></div>"; // close list of user's files
-                    closedir($dh);
-                }
+				if ($file != "." && $file != ".." && $file != "deleted" && $file != ".htaccess") 
+				{
+					$userFiles[] = $file;
+				}
             }
             closedir($dh);
-            $userFiles = json_encode($userFiles);
-            echo $userFiles;
+			$files[] = array("userFiles"=>$userFiles);
+			$simulationDir = $dir . "simulation/";
+        if ($dh = opendir($simulationDir)) 
+        {
+            while (($file = readdir($dh)) !== false) 
+            {
+				if ($file != "." && $file != ".." && $file != "deleted" && $file != ".htaccess") 
+				{
+					$userSimulationFiles[] = $file;
+				}
+            }
+			$files[] = array("userSimulationFiles"=>$userSimulationFiles);
+            $files = json_encode($files);
+            echo $files;
         }
+		else
+		{
+			echo "Sorry,open directory failed<br>";
+		}
+		}
     }
     else
     {
         echo "Sorry,open directory failed<br>";
     }
+}
+function addToSimulation( $dir, $file )
+{
+	$filePath = $dir . $file;
+	$simulationPath = $dir . "simulation/" . $file;
+	if( !copy($filePath, $simulationPath) )
+	{
+		$errors= error_get_last();
+		echo "COPY ERROR: ".$errors['type'];
+		echo "<br />\n".$errors['message'];
+	} 
 }
 
 

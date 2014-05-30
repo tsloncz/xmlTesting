@@ -120,20 +120,21 @@ function printAttributes( $element )
     $name = $element->getName();
     //echo "<table class='attributeTable' type='attributeTable' name='$name' border=1><tr>";
 	echo "<div class='attributes'>";
-	if( in_array($name,$NCardinalityDictionary) )
-	{
-		echo "<button onClick='newTab( $(this).parent() )'>New " . $name . "</button>";
-		echo "<button onClick='clearValues( $(this).parent() )'>Clear Values</button><br />";
-	}
-	if( $name == "Values")
+	//If version make readonly
+	if( $name == "Version")
 	{
 		foreach($element->attributes() as $a => $b)
 		{
 			echo "<div class='attribute' id='$a'><b>$a</b><br /><input type='text' value='$b' readonly></input></div>";
     	}
 	}
-	else
+	else 
 	{
+		if( in_array($name,$NCardinalityDictionary) )
+		{
+			echo "<button onClick='newTab( $(this).parent() )'>New " . $name . "</button>";
+			echo "<button onClick='clearValues( $(this).parent() )'>Clear Values</button><br />";
+		}
 		foreach($element->attributes() as $a => $b)
 		{
 			echo "<div class='attribute' id='$a'><b>$a</b><br /><input type='text' value='$b'></input></div>";
