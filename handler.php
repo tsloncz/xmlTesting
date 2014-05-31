@@ -168,36 +168,38 @@ if( isset($_POST["cmd"]) && $_POST["cmd"] == "saveFile" )
 function printUserFiles( $dir )
 {
     // User's directory, and proceed to read its contents
-    if (is_dir($dir)) {
+    if (is_dir($dir)) 
+	{
         if ($dh = opendir($dir)) 
         {
             while (($file = readdir($dh)) !== false) 
             {
-				if ($file != "." && $file != ".." && $file != "deleted" && $file != ".htaccess") 
+				if ( !is_dir($file) && $file != "deleted" && $file != ".htaccess") 
 				{
 					$userFiles[] = $file;
 				}
             }
             closedir($dh);
 			$files[] = array("userFiles"=>$userFiles);
+			//Get files user has statged to run simulation with
 			$simulationDir = $dir . "simulation/";
-        if ($dh = opendir($simulationDir)) 
-        {
-            while (($file = readdir($dh)) !== false) 
-            {
-				if ($file != "." && $file != ".." && $file != "deleted" && $file != ".htaccess") 
+			if ($dh = opendir($simulationDir)) 
+			{
+				while (($file = readdir($dh)) !== false) 
 				{
-					$userSimulationFiles[] = $file;
+					if ($file != "." && $file != ".." && $file != "deleted" && $file != ".htaccess") 
+					{
+						$userSimulationFiles[] = $file;
+					}
 				}
-            }
-			$files[] = array("userSimulationFiles"=>$userSimulationFiles);
-            $files = json_encode($files);
-            echo $files;
-        }
-		else
-		{
-			echo "Sorry,open directory failed<br>";
-		}
+				$files[] = array("userSimulationFiles"=>$userSimulationFiles);
+				$files = json_encode($files);
+				echo $files;
+			}
+			else
+			{
+				echo "Sorry,open directory failed<br>";
+			}
 		}
     }
     else
@@ -207,14 +209,38 @@ function printUserFiles( $dir )
 }
 function addToSimulation( $dir, $file )
 {
+	$fileType = getFileType($file);
+	echo "filetype: " . $fileType . "<br />";
 	$filePath = $dir . $file;
 	$simulationPath = $dir . "simulation/" . $file;
+	// Check if file type already exists in siumation folder
+	$simulationDir = $dir . "simulation/";
+	if ($dh = opendir($simulationDir)) 
+	{
+		while (($file = readdir($dh)) !== false) 
+		{
+			$tempType = getFileType($file);
+			echo $tempType . "<br />";
+			if ( $tempType == $fileType ) 
+			{
+				echo "unlinking <br />";
+				unlink($simulationDir . $file);
+			}
+		}
+	}
 	if( !copy($filePath, $simulationPath) )
 	{
 		$errors= error_get_last();
 		echo "COPY ERROR: ".$errors['type'];
 		echo "<br />\n".$errors['message'];
 	} 
+}
+function getFileType($file)
+{
+	$type = explode(".", $file);
+	$typeElement = count($type) - 2;
+	$type = $type[$typeElement];
+	return $type;
 }
 
 

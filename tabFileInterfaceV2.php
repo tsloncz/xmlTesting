@@ -256,17 +256,6 @@ function printTableHeadings( $element )
              echo "<th>" . $a . "</th>";
          }
 }
-
-/*
-Elements can have:
-	 only child elements
-	 attributes with valuable information
-	 attributes with valuable info and child elements
-	 csv formatted body with an attribute that contains column names
-*/
-
-//XML Testing
-
 //Replaces printDataAsCsvTable
 function printDataAsCsv( $element )
 {
@@ -292,7 +281,7 @@ function printDataAsCsv( $element )
 				}
 		echo "</div><br />";
 		}
-            echo "<div class='values'>";
+            echo "<div class='values'><div class='valuesRow'>";
             //Create table from csv as string
             for($j=0; $j<$length; $j++)
             {
@@ -307,7 +296,7 @@ function printDataAsCsv( $element )
                             . " value=''></input></span>";
                             $i++;
                         }
-                        echo "<br />";
+                        echo "<br /></div><div class='valuesRow'>";
                         $i=0;
                     }
                     $val .= $csv[$j];
@@ -322,7 +311,7 @@ function printDataAsCsv( $element )
                     $val = '';
                 }
             }
-            echo "</div><br>";
+            echo "</div></div><br>";
 }
 function printDataAsString( $element )
 {
@@ -333,7 +322,4 @@ function printDataAsString( $element )
             . "<textarea rows='3' cols='30' value='$element'>$element</textarea></div>";
 }
 
-function readOnlyDiv( $element )
-{
-}
  ?>
