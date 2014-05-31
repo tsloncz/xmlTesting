@@ -9,6 +9,7 @@ $( document ).ready(function() {
 	$( "#fileName" ).change(function() {
 	  validFileName();
 	});
+	//Ajax file upload initialize
 	$('#uploadForm').ajaxForm(function() { 
                 console.log("Thank you for your comment!"); 
     			getUserFiles();
@@ -16,27 +17,6 @@ $( document ).ready(function() {
         target: 'myResultsDiv'
     	})
    	});
-	var dialog = $( "#dialog" ).dialog({
-      autoOpen: false,
-      modal: true,
-      buttons: {
-        Add: function() {
-          addTab();
-          $( this ).dialog( "close" );
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      },
-      close: function() {
-        form[ 0 ].reset();
-      }
-    });
-	var form = dialog.find( "form" ).submit(function( event ) {
-      newTab();
-      dialog.dialog( "close" );
-      event.preventDefault();
-    });
 	
 });
 function validFileName()
@@ -71,6 +51,13 @@ function addToSimulation(element)
 		console.log(data);
         getUserFiles();
     });
+}
+function runSimulation()
+{
+	var required = ["cdb","wdb","sdb","xdb","gdb"];
+	$.each( $(".userSimulationFiles").children("li"), function(){
+		console.log($(this).html());
+	});
 }
 function deleteFile(file)
 {
@@ -132,15 +119,14 @@ function uploadFile()
 function newTab( element )
 {
 	var newDivHtml = element.parent().html();
-	//console.log(newDivHtml);
-	//elementClone = elementClone.html();
 	var temp = element.parent();
 	var tab = temp.parent();
-	var type = temp.attr("id");
+	var type = element.parent().attr("id");
 	var lastListElement = tab.children("ul").find("li").last().attr("aria-controls" );
 	//console.log("Last list item: " + lastListElement);
 	newTabNum = parseInt(lastListElement.split("_").pop() ) + 1;
-	var newTabName = lastListElement.split("_",1);
+	//var newTabName = lastListElement.split("_",1);
+	var newTabName = element.parent().attr("id" ).split("_",1);
 	var newTabId = newTabName+ "_" + newTabNum;
 	//console.log("New tab: " + newTabName +"_"+ newTabNum);
 	// Add link to new tab to list
@@ -163,21 +149,22 @@ function createInterface(file)
             //Initialize all tabs
             $( "#tabs[id*='tab']" ).each(function(){
                 $(this).tabs();
-				$(this).delegate( "span.ui-icon-close", "click", function() {
-				  var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
-				  $( "#" + panelId ).remove();
-				});
+				/*$(this).delegate( "span.ui-icon-close", "click", function() {
+					removeTab($(this));
+				});*/
             });
 			
             validFileName();
     });
 } 
-function removeTab()
+function removeTab(element)
 {
-	console.log("deleting");
-    tabs.delegate( "span.ui-icon-close", "click", function() {
-		if( $(this).parent().children("li").length ==1 )
+	console.log("deleting " + element.parent().parent().children("li").length );
+	/*var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+				  $( "#" + panelId ).remove();*/
+		if( element.parent().parent().children("li").length ==1 )
 		{
+			console.log("NOT deleteing");
 			$( "#dialog-alert" ).dialog({
 			  height: 140,
 			  modal: true
@@ -186,11 +173,10 @@ function removeTab()
 		}
 		else
 		{
-			  var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+			console.log("deleteing");
+			  var panelId = element.closest( "li" ).remove().attr( "aria-controls" );
 			  $( "#" + panelId ).remove();
-			  tabs.tabs( "refresh" );
 		}
-    });
 }
 // close icon: removing the tab on click
 /*

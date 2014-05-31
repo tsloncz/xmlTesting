@@ -156,7 +156,7 @@ function createTabs($element)
         $name = $child->getName();
 		if($uniqueId != "")
 		{
-        	echo "<li><a href='#" . $name . "_" . $i . "'>" . $name . $uniqueId . "</a><span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>";
+        	echo "<li><a href='#" . $name . "_" . $i . "'>" . $name . $uniqueId . "</a><span class='ui-icon ui-icon-close' onclick='removeTab($(this))' role='presentation'>Remove Tab</span></li>";
 		}
 		else
 		{

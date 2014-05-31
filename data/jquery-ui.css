@@ -962,7 +962,7 @@ background-image: linear-gradient(to bottom, #00040B 0%, #001D4C 100%);
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
-	background-image: url(images/ui-icons_454545_256x240.png);
+	background-image: url(images/ui-icons_222222_256x240.png);
 }
 .ui-state-active .ui-icon {
 	background-image: url(images/ui-icons_ffffff_256x240.png);
