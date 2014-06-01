@@ -187,7 +187,7 @@ function printUserFiles( $dir )
 			{
 				while (($file = readdir($dh)) !== false) 
 				{
-					if ($file != "." && $file != ".." && $file != "deleted" && $file != ".htaccess") 
+					if ($file != "." && $file != ".." && $file != "simulation" && $file != "deleted" && $file != ".htaccess") 
 					{
 						$userSimulationFiles[] = $file;
 					}
