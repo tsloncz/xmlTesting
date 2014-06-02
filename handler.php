@@ -144,6 +144,12 @@ if( isset($_POST["cmd"]) && $_POST["cmd"] == "addToSimulation" )
 	$file = $_POST["fileToAdd"];
     addToSimulation($filePath, $file);
 }
+if( isset($_POST["cmd"]) && $_POST["cmd"] == "runSimulation" )
+{
+    $filePath = $_SESSION['directory'];
+    include 'exeSim.php';
+    runSimulation($filePath);
+}
 if( isset($_POST["cmd"]) && $_POST["cmd"] == "deleteFile" )
 {
     $filePath = $_SESSION['directory'] . $_POST["fileName"];
@@ -210,7 +216,6 @@ function printUserFiles( $dir )
 function addToSimulation( $dir, $file )
 {
 	$fileType = getFileType($file);
-	echo "filetype: " . $fileType . "<br />";
 	$filePath = $dir . $file;
 	$simulationPath = $dir . "simulation/" . $file;
 	// Check if file type already exists in siumation folder
@@ -220,10 +225,8 @@ function addToSimulation( $dir, $file )
 		while (($file = readdir($dh)) !== false) 
 		{
 			$tempType = getFileType($file);
-			echo $tempType . "<br />";
 			if ( $tempType == $fileType ) 
 			{
-				echo "unlinking <br />";
 				unlink($simulationDir . $file);
 			}
 		}

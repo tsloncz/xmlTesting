@@ -89,7 +89,14 @@ function runSimulation()
 		  height: 140,
 		  modal: true
 		});
-
+	}
+	else //Have all required files so run simulation
+	{
+		
+		$.post( "handler.php", { cmd: "runSimulation"} )
+		.done( function(data){
+			console.log("Your simulation ran!");
+		});
 	}
 }
 function deleteFile(file)
